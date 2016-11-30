@@ -293,9 +293,11 @@ int main()
 
 	} while (sChoice[0] != '0');
 
-
-	delete pointTab;
-	delete recTab;
+	if (bIsCreated)
+	{
+		delete pointTab;
+		delete recTab;
+	}
 
 	getchar();
 	return 0;
