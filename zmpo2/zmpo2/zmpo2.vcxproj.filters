@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C_Point2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C_Rectangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CPoint2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CRectangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C_Rectangle.h">
+    <ClInclude Include="CPoint2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C_Point2D.h">
+    <ClInclude Include="CRectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

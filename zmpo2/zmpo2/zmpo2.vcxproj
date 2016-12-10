@@ -110,13 +110,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="C_Point2D.cpp" />
-    <ClCompile Include="C_Rectangle.cpp" />
+    <ClCompile Include="CPoint2D.cpp" />
+    <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C_Point2D.h" />
-    <ClInclude Include="C_Rectangle.h" />
+    <ClInclude Include="CPoint2D.h" />
+    <ClInclude Include="CRectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
