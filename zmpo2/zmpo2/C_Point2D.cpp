@@ -1,13 +1,5 @@
 #include "C_Point2D.h"
 
-C_Point2D::C_Point2D()
-{
-	pd_x = new double;
-	pd_y = new double;
-	*pd_x = 0.0;
-	*pd_y = 0.0;
-}
-
 C_Point2D::C_Point2D(double dVal1, double dVal2)
 {
 	pd_x = new double();
@@ -16,7 +8,7 @@ C_Point2D::C_Point2D(double dVal1, double dVal2)
 	*pd_y = dVal2;
 }
 
-C_Point2D::C_Point2D(C_Point2D &pcOther)
+C_Point2D::C_Point2D(const C_Point2D &pcOther)
 {
 	pd_x = new double();
 	pd_y = new double();
@@ -30,12 +22,12 @@ C_Point2D::~C_Point2D()
 	delete pd_y;
 }
 
-double C_Point2D::dGetX()
+double C_Point2D::dGetX() const
 {
 	return *pd_x;
 }
 
-double C_Point2D::dGetY()
+double C_Point2D::dGetY() const
 {
 	return *pd_y;
 }
