@@ -15,7 +15,7 @@ C_Rectangle::C_Rectangle(C_Point2D p1, C_Point2D p2)
 	point1.vSetX(p1.dGetX());
 	point1.vSetY(p1.dGetY());
 	point2.vSetX(p2.dGetX());
-	point2.vSetY(p1.dGetY());
+	point2.vSetY(p2.dGetY());
 }
 
 C_Rectangle::C_Rectangle(C_Rectangle &pcOther)
