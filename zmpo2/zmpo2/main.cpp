@@ -33,6 +33,16 @@ int main()
 					rectTabLength = iHowManyR;
 					pointTab = new CPoint2D*[iHowManyP];
 					recTab = new CRectangle*[iHowManyR];
+
+					for (int iI = 0; iI < rectTabLength; iI++)
+					{
+						recTab[iI] = NULL;
+					}
+					for (int iI = 0; iI < pointTabLength; iI++)
+					{
+						pointTab[iI] = NULL;
+					}
+
 					bIsCreated = true;
 					cout << "DONE" << endl;
 				}
@@ -50,7 +60,8 @@ int main()
 				cin >> iPosition;
 				cin >> dX1;
 				cin >> dY1;
-				createPoint(iPosition, dX1, dY1, pointTab, pointTabLength);
+				if (pointTab[iPosition] == NULL)
+					createPoint(iPosition, dX1, dY1, pointTab, pointTabLength);
 			}
 		}
 		else if (sChoice == "!createPointCopy")
@@ -63,7 +74,8 @@ int main()
 				int iPositionFrom;
 				cin >> iPosition;
 				cin >> iPositionFrom;
-				createPointCopy(iPosition, iPositionFrom, pointTab, pointTabLength);
+				if (pointTab[iPositionFrom] != NULL && pointTab[iPosition] == NULL)
+					createPointCopy(iPosition, iPositionFrom, pointTab, pointTabLength);
 			}
 		}
 		else if (sChoice == "!setPoint")
@@ -78,7 +90,8 @@ int main()
 				cin >> iPosition;
 				cin >> dX1;
 				cin >> dY1;
-				setPoint(iPosition, dX1, dY1, pointTab, pointTabLength);
+				if (pointTab[iPosition != NULL])
+					setPoint(iPosition, dX1, dY1, pointTab, pointTabLength);
 			}
 		}
 		else if (sChoice == "!getPointX")
@@ -89,7 +102,8 @@ int main()
 			{
 				int iPosition;
 				cin >> iPosition;
-				getPointX(iPosition, pointTab, pointTabLength);
+				if (pointTab[iPosition] != NULL)
+					getPointX(iPosition, pointTab, pointTabLength);
 			}
 		}
 		else if (sChoice == "!getPointY")
@@ -100,7 +114,8 @@ int main()
 			{
 				int iPosition;
 				cin >> iPosition;
-				getPointY(iPosition, pointTab, pointTabLength);
+				if (pointTab[iPosition] != NULL)
+					getPointY(iPosition, pointTab, pointTabLength);
 			}
 		}
 		else if (sChoice == "!createRectDouble")
@@ -119,7 +134,8 @@ int main()
 				cin >> dY1;
 				cin >> dX2;
 				cin >> dY2;
-				createRectDouble(iPosition, dX1, dY1, dX2, dY2, recTab, rectTabLength);
+				if (recTab[iPosition] == NULL)
+					createRectDouble(iPosition, dX1, dY1, dX2, dY2, recTab, rectTabLength);
 			}
 		}
 		else if (sChoice == "!createRectPoints")
@@ -134,7 +150,8 @@ int main()
 				cin >> iPosition;
 				cin >> iPoint1;
 				cin >> iPoint2;
-				createRectPoints(iPosition, iPoint1, iPoint2, recTab, pointTab, pointTabLength, rectTabLength);
+				if (recTab[iPosition] == NULL)
+					createRectPoints(iPosition, iPoint1, iPoint2, recTab, pointTab, pointTabLength, rectTabLength);
 			}
 		}
 		else if (sChoice == "!createRectCopy")
@@ -147,7 +164,8 @@ int main()
 				int iPositionFrom;
 				cin >> iPosition;
 				cin >> iPositionFrom;
-				createRectCopy(iPosition, iPositionFrom, recTab, rectTabLength);
+				if (recTab[iPosition] == NULL && recTab[iPositionFrom] != NULL)
+					createRectCopy(iPosition, iPositionFrom, recTab, rectTabLength);
 			}
 		}
 		else if (sChoice == "!fieldRect")
@@ -158,7 +176,8 @@ int main()
 			{
 				int iPosition;
 				cin >> iPosition;
-				fieldRect(iPosition, recTab, rectTabLength);
+				if(recTab[iPosition] != NULL)
+					fieldRect(iPosition, recTab, rectTabLength);
 			}
 		}
 		else if (sChoice == "!showRect")
@@ -169,7 +188,8 @@ int main()
 			{
 				int iPosition;
 				cin >> iPosition;
-				showRect(iPosition, recTab, rectTabLength);
+				if (recTab[iPosition] != NULL)
+					showRect(iPosition, recTab, rectTabLength);
 			}
 		}
 		else if (sChoice == "!showPoint")
@@ -180,7 +200,8 @@ int main()
 			{
 				int iPosition;
 				cin >> iPosition;
-				showPoint(iPosition, pointTab, pointTabLength);
+				if (pointTab[iPosition] != NULL)
+					showPoint(iPosition, pointTab, pointTabLength);
 			}
 		}
 		else if (sChoice == "!assignPoint")
@@ -193,7 +214,8 @@ int main()
 				int iPositionFrom;
 				cin >> iPosition;
 				cin >> iPositionFrom;
-				assignPoint(iPosition, iPositionFrom, pointTab, pointTabLength);
+				if (pointTab[iPosition] == NULL && pointTab[iPositionFrom] != NULL)
+					assignPoint(iPosition, iPositionFrom, pointTab, pointTabLength);
 			}
 		}
 		else if (sChoice == "!assignRect")
@@ -206,7 +228,8 @@ int main()
 				int iPositionFrom;
 				cin >> iPosition;
 				cin >> iPositionFrom;
-				assignRect(iPosition, iPositionFrom, recTab, rectTabLength);
+				if (recTab[iPosition] == NULL && recTab[iPositionFrom] != NULL)
+					assignRect(iPosition, iPositionFrom, recTab, rectTabLength);
 			}
 		}
 		else if (sChoice == "!addPoint")
@@ -219,7 +242,8 @@ int main()
 				int iPointPosition;
 				cin >> iPosition;
 				cin >> iPointPosition;
-				addPoint(iPosition, iPointPosition, recTab, pointTab, pointTabLength, rectTabLength);
+				if (recTab[iPosition] != NULL && pointTab[iPointPosition] != NULL)
+					addPoint(iPosition, iPointPosition, recTab, pointTab, pointTabLength, rectTabLength);
 			}
 		}
 		else if (sChoice == "!addRect")
@@ -232,8 +256,23 @@ int main()
 				int iPositionAdded;
 				cin >> iPosition;
 				cin >> iPositionAdded;
-				addRect(iPosition, iPositionAdded, recTab, rectTabLength);
+				if (recTab[iPosition] != NULL && recTab[iPositionAdded] != NULL)
+					addRect(iPosition, iPositionAdded, recTab, rectTabLength);
 			}
+		}
+		else if (sChoice == "!exit")
+		{
+			for (int iI = 0; iI < rectTabLength; iI++)
+			{
+				if (recTab[iI] != NULL)
+					delete recTab[iI];
+			}
+			for (int iI = 0; iI < pointTabLength; iI++)
+			{
+				if (pointTab[iI] != NULL)
+					delete pointTab[iI];
+			}
+			break;
 		}
 		else
 		{
